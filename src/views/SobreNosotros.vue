@@ -1,14 +1,11 @@
 <script setup>
-import Footer from '@/components/Footer.vue';
 import Header from '@/components/Header.vue';
-
-
+import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-    <Header />
-  
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/img/bg-img/breadcumb1.jpg)">
+<Header />
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/img/bg-img/breadcumb1.jpg)">
   <div class="container h-100">
       <div class="row h-100 align-items-center">
           <div class="col-12">
@@ -46,5 +43,6 @@ import Header from '@/components/Header.vue';
       </div>
   </div>
 </section>
- <Footer />
-  </template>
+<Footer></Footer>
+
+</template>

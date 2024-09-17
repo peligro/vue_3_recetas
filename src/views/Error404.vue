@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<section class="about-area section-padding-80">
+    <section class="about-area section-padding-80">
   <div class="container">
       <div class="row">
           <div class="col-12">
@@ -29,4 +29,3 @@
   </div>
 </section>
 </template>
-

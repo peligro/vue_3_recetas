@@ -1,21 +1,21 @@
 <script setup>
+import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
-import Header from '@/components/Header.vue'; 
-import { recetaComposable } from '@/composables/recetaComposable'; 
+import { recetaComposable } from '@/componsables/recetaComposable';
+import {useRoute} from 'vue-router';
 import { watchEffect } from 'vue';
-import { useRoute } from 'vue-router'; 
-let route =useRoute(); 
-const { dato: dato, error:error}  = recetaComposable(route.params.slug);//$route.params.slug
+let route = useRoute();
 
-
-watchEffect(() => { 
-      if (error.value) {
-        alert('Problem found: ' + error.value.message);
-        //window.location="/error";
-      }
+const {dato:dato, error: error} = recetaComposable(route.params.slug);
+ 
+watchEffect(()=>
+{
+    if(error.value)
+    {
       
-      
-    }); 
+        window.location="/error";
+    }
+});
 </script>
 
 <template>
@@ -49,12 +49,12 @@ watchEffect(() => {
           <div class="row">
               <div class="col-12 col-md-8">
                   <div class="receipe-headline my-5">
-                      <span>{{dato.data?.fecha}}</span>
-                      <h2>{{dato.data?.nombre}}</h2>
+                      <span>{{ dato.data?.fecha }}</span>
+                      <h2>{{ dato.data?.nombre }}</h2>
                       <div class="receipe-duration">
-                          <h6>Tiempo : {{dato.data?.tiempo}}</h6>
-                          <h6>Categoría: {{dato.data?.categoria}}</h6>
-                          <h6>Creada por: {{dato.data?.user}}</h6>
+                          <h6>Tiempo : {{ dato.data?.tiempo }}</h6>
+                          <h6>Categoría: {{ dato.data?.categoria }}</h6>
+                          <h6>Creada por: {{ dato.data?.user }}</h6>
                       </div>
                   </div>
               </div>
@@ -66,7 +66,7 @@ watchEffect(() => {
               <div class="col-12 col-lg-12">
                   <div class="single-preparation-step d-flex">
 
-                      <p>{{dato.data?.descripcion}}</p>
+                      <p> {{ dato.data?.descripcion }} </p>
                   </div>
 
               </div>
